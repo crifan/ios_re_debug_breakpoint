@@ -1,0 +1,19 @@
+{
+  "title": "iOS逆向之动态调试：断点",
+  "description": "介绍iOS逆向期间涉及到的断点的各方面的知识和心得。",
+  "pluginsConfig": {
+    "github-buttons": {
+      "buttons": [
+        {
+          "repo": "ios_re_debug_breakpoint"
+        }
+      ]
+    },
+    "sitemap-general": {
+      "prefix": "https://book.crifan.org/books/ios_re_debug_breakpoint/website/"
+    },
+    "toolbar-button": {
+      "url": "https://book.crifan.org/books/ios_re_debug_breakpoint/pdf/ios_re_debug_breakpoint.pdf"
+    }
+  }
+}
