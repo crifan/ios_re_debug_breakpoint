@@ -1,6 +1,6 @@
 {
-  "latestVersion": "v0.7",
-  "lastUpdate": "20230705",
+  "latestVersion": "v0.8",
+  "lastUpdate": "20230706",
   "gitRepoName": "ios_re_debug_breakpoint",
   "bookName": "iOS逆向之动态调试：断点",
   "bookDescription": "介绍iOS逆向期间涉及到的断点的各方面的知识和心得。"

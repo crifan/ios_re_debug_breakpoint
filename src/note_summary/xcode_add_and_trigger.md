@@ -113,9 +113,9 @@
                     * 注：此时`Preferences`的`PID`是84125
                 * 效果：即可
                   * 能加上hook函数的断点
-                    * ![hook_added_shouldContinueWithAuthenticationResults](../assets/img/hook_added_shouldContinueWithAuthenticationResults.png)
+                    * ![hook_added_shouldContinueWithAuthenticationResults](../assets/img/hook_added_shouldContinueWithAuthenticationResults.jpg)
                   * 且hook函数的断点可以触发
-                    * ![hook_trigger_shouldContinueWithAuthenticationResults](../assets/img/hook_trigger_shouldContinueWithAuthenticationResults.png)
+                    * ![hook_trigger_shouldContinueWithAuthenticationResults](../assets/img/hook_trigger_shouldContinueWithAuthenticationResults.jpg)
     * 能加上断点，但没触发
       * 可能原因
         * 函数名搞错了
@@ -132,7 +132,7 @@
                 * 改为此处正确的函数：
                   * `-[AKAppleIDAuthenticationService _authenticateWithContext:completion:]`
                 * 去加hook代码，加断点
-                  * ![hook_correct__authenticateWithContext](../assets/img/hook_correct__authenticateWithContext.png)
+                  * ![hook_correct__authenticateWithContext](../assets/img/hook_correct__authenticateWithContext.jpg)
                 * -》最后就可以正常触发hook代码的断点了
         * hook目标和Xcode调试目标都不对
           * 举例

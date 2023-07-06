@@ -1,45 +1,10 @@
-# 背景知识
-
-## 查看进程PID
-
-* 查看进程PID
-  * 方式1
-    * `Mac`中
-      ```bash
-      frida-ps -Uia
-      ```
-  * 方式2
-    * `iPhone`的`ssh`中
-      ```bash
-      ps -A | grep Preferences
-      ```
-
-## 确保最新的dylib插件动态库被加载
-
-* 小技巧：想要确保：最新的dylib插件动态库被加载了 -》 即可实现hook代码断点可以加上，且能触发断点
-  * 可以通过`Console.app`=`控制台`中是否输出相关ctor日志确认dylib是否已加载，是否是新版本
-    * 把ctor中代码加上最新版字符串
-      ```c
-      static char* Updated = "20230627_1005";
-      ...
-      %ctor {
-        iosLogInfo("%s: %s", Updated, "jailAppleAccount ctor");
-      }
-      ```
-      * ![hook_ctor_updated](../assets/img/hook_ctor_updated.png)
-    * 此处能输出最新版字符串，即表示dylib加载了，且是最新版
-      ```bash
-      默认  10:07:18.451903+0800  Preferences  hook_ jailAppleAccount.xm _logosLocalCtor_96660fcf: 20230627_1005: jailAppleAccount ctor
-      ```
-      * ![console_log_show_updated_ctor](../assets/img/console_log_show_updated_ctor.png)
-
-## 得到函数的实际地址
+# 得到函数的实际地址
 
 iOS逆向调试期间，往往需要搞清楚某个函数的实际地址，然后用于后续通过地址添加断点
 
 而函数的实际地址，有多种方式可以获取到：
 
-### 通过po查看类的描述，得到函数实际地址
+## 通过po查看类的描述，得到函数实际地址
 
 举例说明：
 
@@ -77,17 +42,19 @@ in __NSXPCInterfaceProxy_AKAppleIDAuthenticationDaemonProtocol:
 
 ```bash
 breakpoint set -a 0xb74ee6818326cc9c
+
+br s -a 0xb74ee6818326cc9c
 ```
 
 即可顺利加上断点，并真正触发到该断点。
 
-### 计算出函数的实际地址
+## 计算出函数的实际地址
 
 * 背景：已知函数在二进制内部的偏移量
 * 希望：计算出函数的实际的地址
   * 计算公式：`函数实际地址`=`二进制的ALSR基地址`+`函数二进制内偏移量` 
 
-### 举例
+## 举例
 
 `RzGame`中的`sub_1000B0770`函数，起始地址是：`0x00000100157BB0`
 
