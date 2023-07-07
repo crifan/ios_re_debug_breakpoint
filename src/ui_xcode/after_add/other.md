@@ -5,7 +5,7 @@
 
 * 问题
 
-lldb中给ObjC函数加断点：
+`lldb`中给ObjC函数加断点：
 
 ```bash
 br s -n "-[NSMutableURLRequest setValue:forHTTPHeaderField:]"
