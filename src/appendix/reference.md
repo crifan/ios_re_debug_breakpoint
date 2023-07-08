@@ -29,6 +29,14 @@
 * 【已解决】iOS逆向：给objc_alloc_init函数的断点的条件判断是否是类AADeviceInfo尝试更多其他写法
 * 【已解决】iOS逆向Apple账号：objc_alloc_init的汇编代码断点没有触发到的原因
 * 【已解决】iOS逆向：给objc_alloc_init的+44行汇编代码的断点加条件判断的是否是类AADeviceInfo的更多种写法
+* 【已解决】lldb调试时给已有断点更改condition条件判断
+* 【已解决】给抖音恢复符号表便于Xcode调试加断点
+* 【已解决】给XCode调试抖音Aweme恢复符号表
+* 【已解决】用HeiTanBc的restore-symbol去给抖音AwemeCore恢复符号表
+* 【整理】抖音AwemeCore恢复符号表的效果举例
+* 【已解决】给YouTube恢复符号表方便Xcode调试
+* 【已解决】XCode调试警告：was compiled with optimization stepping may behave oddly variables may not be available
+* 【已解决】Xcode编译dylib越狱插件运行提示：was compiled with optimization stepping may behave oddly
 * 
 * [不用反汇编！LLDB对Objective-C函数下断点的黑科技 - 干货分享 - 睿论坛 (iosre.com)](https://iosre.com/t/%E4%B8%8D%E7%94%A8%E5%8F%8D%E6%B1%87%E7%BC%96%EF%BC%81lldb%E5%AF%B9objective-c%E5%87%BD%E6%95%B0%E4%B8%8B%E6%96%AD%E7%82%B9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/6711/20)
 * [断点 - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-hans/%E6%96%AD%E7%82%B9)

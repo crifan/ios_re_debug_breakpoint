@@ -21,7 +21,7 @@ iOS逆向期间，常会遇到：`lldb无名函数`=名字是`___lldb_unnamed_sy
   * 方式2：计算出函数实际地址，再通过实际地址加断点
 * 给 函数名中不包含模块名的 加断点
   * 需要指定模块名才可以
-    * 具体做法，详见：[指定模块](../../common_logic/advanced_usage/module.md)
+    * 具体做法，详见：[指定模块](../../../common_logic/advanced_usage/module.md)
 
 下面举例说明：
 
@@ -45,7 +45,7 @@ iOS逆向期间，常会遇到：`lldb无名函数`=名字是`___lldb_unnamed_sy
 
 ##### 方式2：通过无名函数的实际地址
 
-如[得到函数的实际地址](common_logic/background/get_func_real_addr.md)所介绍，先去：
+如[得到函数的实际地址](../../../common_logic/background/get_func_real_addr.md)所介绍，先去：
 
 * 计算出模块的ALSR基地址
 
