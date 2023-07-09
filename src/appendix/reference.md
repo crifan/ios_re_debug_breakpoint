@@ -37,10 +37,20 @@
 * 【已解决】给YouTube恢复符号表方便Xcode调试
 * 【已解决】XCode调试警告：was compiled with optimization stepping may behave oddly variables may not be available
 * 【已解决】Xcode编译dylib越狱插件运行提示：was compiled with optimization stepping may behave oddly
+* 【记录】Xcode中加特殊的全局异常的断点
+* 【未解决】Xcode中无法给下一行将要运行的汇编指令加断点
+* 【已解决】iOS逆向时+[AADeviceInfo(Deprecated) udid]类名中带Deprecated如何加断点和调试
+* 【未解决】iOS逆向Apple账号：debugserver+lldb调试+[AADeviceInfo udid]函数逻辑
+* 【整理】Xcode调试心得：判断Xcode中添加断点是否生效
+* 【已解决】XCode中加的符号断点无效
+* 【已解决】Xcode中加断点无效：XCode won’t pause at this breakpoint because it has not been resolved
+* 【已解决】XCode中一键关闭所有断点和一键恢复所有断点
 * 
 * [不用反汇编！LLDB对Objective-C函数下断点的黑科技 - 干货分享 - 睿论坛 (iosre.com)](https://iosre.com/t/%E4%B8%8D%E7%94%A8%E5%8F%8D%E6%B1%87%E7%BC%96%EF%BC%81lldb%E5%AF%B9objective-c%E5%87%BD%E6%95%B0%E4%B8%8B%E6%96%AD%E7%82%B9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/6711/20)
 * [断点 - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-hans/%E6%96%AD%E7%82%B9)
 * [Breakpoint - Wikipedia](https://en.wikipedia.org/wiki/Breakpoint)
 * [Tutorial — The LLDB Debugger (llvm.org) ](https://lldb.llvm.org/use/tutorial.html)
 * [GDB to LLDB command map — The LLDB Debugger (llvm.org)](https://lldb.llvm.org/use/map.html)
+* [stringByAppendingString: | Apple Developer Documentation](https://developer.apple.com/documentation/foundation/nsstring/1412307-stringbyappendingstring?language=objc)
+* [Why aren't Xcode breakpoints functioning? - Stack Overflow](https://stackoverflow.com/questions/64790/why-arent-xcode-breakpoints-functioning)
 * 

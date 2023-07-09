@@ -1,5 +1,29 @@
 # 常见问题
 
+## Xcode断点
+
+### 给当前行加断点却看不到
+
+Xcode中的汇编代码加断点后，默认改行左边会显示蓝色底色，表示加了断点了：
+
+比如：
+
+![xcode_line_br_normal](../assets/img/xcode_line_br_normal.jpg)
+
+但是，当给，调试时函数调用堆栈中，上层某层函数的汇编代码的下一行将要执行的汇编代码，去加断点时，结果：
+
+点击了左边的空白处，但是：没有出现（表示断点添加成功的）蓝色底色：
+
+![xcode_line_click_not_blue](../assets/img/xcode_line_click_not_blue.png)
+
+以为是：没有成功（给该行汇编代码）加上断点
+
+其实就是没有成功添加断点，且
+
+* 是无法给该行（断点时，上层某函数的，将要执行的下一行汇编代码）加上断点的
+  * 因此：此时右键该行左边空白处，是看不到=无法出现右键菜单的
+    * 对比：其他普通已经加上断点的地方出现的，右键是可以出现，编辑断点、删除断点等功能的右键菜单的
+
 ## Xcode设置
 
 ### was compiled with optimization - stepping may behave oddly; variables may not be available
@@ -122,8 +146,7 @@ error: <user expression 25>:1:21: 'objc_getClass' has unknown return type; cast 
   * 详见：
     * 【已解决】iOS的ObjC中如何获取Class类名
 
-
-## 其他
+## iOS的ObjC相关
 
 ### WARNING:  Unable to resolve breakpoint to any actual locations
 
@@ -167,3 +190,34 @@ image lookup -rn "setValue:forHTTPHeaderField:"
 ```bash
 br s -n "-[SSMutableURLRequestProperties setValue:forHTTPHeaderField:]"
 ```
+
+### 给带Deprecated的函数名加断点加不上断点
+
+之前试过给ObjC函数：
+
+```bash
++[AADeviceInfo(Deprecated) udid]
+```
+
+去加断点，发现加不上
+
+后来才知道，其实是：
+
+* 之前没加上断点，是另外的原因
+  * 调试目标和hook目标不一致
+    * 具体解决办法，详见：[断点能加上且能触发](../note_summary/xcode/added_and_trigger.md)
+* 此处能加上断点，用的函数名是不带`Deprecated`字眼的
+  ```bash
+  +[AADeviceInfo udid]
+  ```
+* 如果起查找函数，可以发现底层函数就是带`Deprecated`字眼的函数 = 真正触发时，Xcode中显示的也是带Deprecated字眼的函数
+  ```bash
+  (lldb) image lookup -vn "+[AADeviceInfo udid]"
+  1 match found in /Users/crifan/Library/Developer/Xcode/iOS DeviceSupport/15.0 (19A346)/Symbols/System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount:
+          Address: AppleAccount[0x0000000191e0e558] (AppleAccount.__TEXT.__text + 176432)
+          Summary: AppleAccount`+[AADeviceInfo(Deprecated) udid]
+          Module: file = "/Users/crifan/Library/Developer/Xcode/iOS DeviceSupport/15.0 (19A346)/Symbols/System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount", arch = "arm64"
+          Symbol: id = {0x00000473}, range = [0x0000000195ce6558-0x0000000195ce659c), name="+[AADeviceInfo(Deprecated) udid]"
+  ```
+
+## 其他

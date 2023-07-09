@@ -17,7 +17,7 @@
 
 加断点：
 
-* Xcode界面
+* Xcode图形界面
   * Xcode-》`Breakpoint Navigator` -》点击➕`加号`-》`Symbolic Breakpoint`-》
     * `Name`: `___lldb_unnamed_symbol972`
     * `Module`: `libMobileGestalt.dylib`
@@ -43,4 +43,5 @@
 
 正常触发断点的效果：
 
-![lldb_unname_breakpoint_triggered_74](../../assets/img/lldb_unname_breakpoint_triggered_74.jpg)
+* Xcode图形界面
+  * ![lldb_unname_breakpoint_triggered_74](../../assets/img/lldb_unname_breakpoint_triggered_74.jpg)

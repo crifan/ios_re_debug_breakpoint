@@ -2,6 +2,49 @@
 
 ## 举例
 
+### -[__NSCFConstantString stringByAppendingString:]
+
+XCode调试抖音ipa崩溃，发现崩溃日志是：
+
+```bash
+Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '*** -[__NSCFConstantString stringByAppendingString:]: nil argument'
+```
+
+以为对应symbol函数是：
+
+```bash
+-[__NSCFConstantString stringByAppendingString:]:
+```
+
+去添加断点，结果：断点没触发
+
+最后确认，问题的原因和解决办法分别是：
+
+* 此处有2层错误
+  * 第一层是：语法错误 -》 函数名有误
+    * 末尾多了个冒号`:`
+      ```bash
+      -[__NSCFConstantString stringByAppendingString:]:
+      ```
+      * 因此：实际上函数断点也没加上，更不会触发断点
+    * 应该改为：
+      ```bash
+      -[__NSCFConstantString stringByAppendingString:]
+      ```
+  * 第二层是：类名搞错了
+    * 不是`__NSCFConstantString`，而是`NSString`
+      * 此处函数（的类）搞错了，此处实际上应该用（`__NSCFConstantString`的所属的`CF`=`CoreFoundation`）对应的`NS`的类：`NSString`
+    * 所以应该写成
+      ```bash
+      -[NSString stringByAppendingString:]
+      ```
+
+即可正常触发断点，效果是：
+
+![xcode_stringByAppendingString_br_trigger](../assets/img/xcode_stringByAppendingString_br_trigger.png)
+
+### objc_alloc_init相关
+
 Xcode中加的条件判断的断点：
 
 * 函数objc_alloc_init

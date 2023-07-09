@@ -1,6 +1,6 @@
 # 恢复符号表
 
-对于之前所介绍的 [lldb无名函数](../../common_logic/advanced_usage/lldb_unname_func.md) ，如果有机会，可以去恢复符号表，就可以：
+对于之前所介绍的 [lldb无名函数](../../note_summary/lldb_unname/README.md) ，如果有机会，可以去恢复符号表，就可以：
 
 把相关lldb无名函数，变成对应的有名字的函数了。
 
@@ -56,11 +56,11 @@ frame #14: 0x000000010842c054 AwemeCore`+[AWELaunchMainPlaceholder load] + 84
 
 对比效果：
 
-![AwemeCore_restore_symbol_diff](../../../assets/img/AwemeCore_restore_symbol_diff.png)
+![AwemeCore_restore_symbol_diff](../../assets/img/AwemeCore_restore_symbol_diff.png)
 
 恢复符号表后的函数调用堆栈：
 
-![AwemeCore_symbol_bt](../../../assets/img/AwemeCore_symbol_bt.png)
+![AwemeCore_symbol_bt](../../assets/img/AwemeCore_symbol_bt.png)
 
 由此：
 
