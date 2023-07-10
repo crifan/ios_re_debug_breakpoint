@@ -1,70 +1,5 @@
 # 常见问题
 
-## Xcode断点
-
-### 给当前行加断点却看不到
-
-Xcode中的汇编代码加断点后，默认改行左边会显示蓝色底色，表示加了断点了：
-
-比如：
-
-![xcode_line_br_normal](../assets/img/xcode_line_br_normal.jpg)
-
-但是，当给，调试时函数调用堆栈中，上层某层函数的汇编代码的下一行将要执行的汇编代码，去加断点时，结果：
-
-点击了左边的空白处，但是：没有出现（表示断点添加成功的）蓝色底色：
-
-![xcode_line_click_not_blue](../assets/img/xcode_line_click_not_blue.png)
-
-以为是：没有成功（给该行汇编代码）加上断点
-
-其实就是没有成功添加断点，且
-
-* 是无法给该行（断点时，上层某函数的，将要执行的下一行汇编代码）加上断点的
-  * 因此：此时右键该行左边空白处，是看不到=无法出现右键菜单的
-    * 对比：其他普通已经加上断点的地方出现的，右键是可以出现，编辑断点、删除断点等功能的右键菜单的
-
-## Xcode设置
-
-### was compiled with optimization - stepping may behave oddly; variables may not be available
-
-* 问题
-
-Xcode中编译的iOSOpenDev的dylib插件，去调试时，右下角调试窗口输出警告信息：
-
-`jailAppleAccount.dylib was compiled with optimization - stepping may behave oddly; variables may not be available.`
-
-![xcode_compiled_with_optimization](../assets/img/xcode_compiled_with_optimization.png)
-
-* 原因
-
-Xcode在编译代码时（默认就）启用了优化：
-
-`Xcode`->`Targets`->`xxx`->`Build Settings`->`Apple Clang - Code Generation`->`Optimization Level`中的`Release`，默认是：`Fastest, Smallest [-Os]`
-
-含义是：程序尽可能的快，文件尽可能的小。
-
-涉及到的内部优化，就可能会把部分调试相关内容优化去掉，从而可能导致调试时出现上述的现象：
-
-* stepping may behave oddly
-  * 单步（进入或跳过）调试时，会出现奇怪的现象
-    * 因为部分代码可能被优化掉了
-      * 从而该代码单步执行可能执行不到，或者和源码对不上
-* variables may not be available
-  * 部分变量可能会被优化掉
-
-* 解决办法：去掉优化，保留调试信息
-* 具体步骤：
-  * 把上述中，`Release`的`Optimization Level`的值改为`None [-O0]`
-    * 图
-      * ![xcode_optimization_level_values](../assets/img/xcode_optimization_level_values.png)
-      * ![xcode_optimization_level_none_O0](../assets/img/xcode_optimization_level_none_O0.png)
-    * 表示：不（做任何）优化
-      * 从而保留了调试信息
-        * 后续
-          * 单步调试就正常了，和代码对得上了
-          * 变量值也不会丢失了
-
 ## 条件判断断点
 
 ### Couldn't parse conditional expression error user expression has unknown return type cast the call to its declared return type
@@ -221,3 +156,23 @@ br s -n "-[SSMutableURLRequestProperties setValue:forHTTPHeaderField:]"
   ```
 
 ## 其他
+
+### warning: failed to set breakpoint site at 0x1b1750624 for breakpoint 66.1: error sending the breakpoint request
+
+* 问题
+
+Xcode中加断点时报错：
+
+```bash
+warning: failed to set breakpoint site at 0x1b1750624 for breakpoint 66.1: error sending the breakpoint request
+```
+
+![failed_set_br_site_at](../assets/img/failed_set_br_site_at.png)
+
+* 原因：调试环境被破坏了
+  * 细节：之前Mac中，正常用Xcode调试USB连接的iPhone设备中的内容，但是后来，关闭了Mac屏幕，内部应该就是去休眠了
+    * 所以会导致Mac中和iPhone中部分程序已休眠，或者是停止运行，断开连接等异常情况
+    * 所以即使重新打开Mac屏幕，重新继续去Xcode中去调试，此时环境也不对了，被破坏了，所以会出现各种异常情况
+* 解决办法
+  * 重新用Mac连接iPhone，加上Xcode去，重新启动调试环境，即可正常继续调试：添加断点等等
+    * ![xcode_normal_add_br](../assets/img/xcode_normal_add_br.png)

@@ -45,6 +45,51 @@
 * 【已解决】XCode中加的符号断点无效
 * 【已解决】Xcode中加断点无效：XCode won’t pause at this breakpoint because it has not been resolved
 * 【已解决】XCode中一键关闭所有断点和一键恢复所有断点
+* 【已解决】iOS逆向Apple账号：objc_alloc_init的hook代码加不上断点断点无效
+* 【已解决】Xcode中xm源码中无法看到和添加断点
+* 【已解决】让XCode的iOSOpenDev中Logos的xm文件支持语法高亮
+* 【已解决】iOS逆向：Xcode写hook插件看能否调试触发断点
+* 【已解决】如何才能让Xcode中hook代码断点被触发实时调试插件hook代码
+* 【已解决】XCode调试抖音ipa：给用Logos去hook的函数_dyld_get_image_name加符号断点
+* 【已解决】iOS的ObjC函数如何正确转换成签名加到Xcode断点
+* 【已解决】iOS逆向：给amsaccountsd重签名以使得Xcode可以调试amsaccountsd
+* 【未解决】iOS逆向Apple账号：debugserver+lldb调试+[AADeviceInfo udid]函数逻辑
+* 【未解决】iOS逆向Apple账号：换tweak插件去调试+[AADeviceInfo udid]
+* 【已解决】Xcode中调试时给+[AADeviceInfo udid]的hook代码加断点失效加不上
+* 【已解决】iOS逆向时lldb中添加了ObjC函数的断点却没触发到
+* 【已解决】iOS逆向Apple账号：+[AADeviceInfo udid]断点没生效换调试对象Preferences
+* 【已解决】iOS逆向Apple账号：给objc_alloc_init汇编代码中的AADeviceInfo init加断点调试是否触发
+* 【未解决】iOS逆向Apple账号：用debugserver+lldb去调试-[AALoginAccountRequest urlRequest]看断点是否触发
+* 【未解决】iOS逆向Apple账号：Xcode调试找不到和没有触发NSURLRequest相关断点
+* 【未解决】Xcode中如何给iOS的Swift函数加断点：AppleStoreCore的User的initialize
+* 【未解决】iOS逆向AppleStore证书无效：多个SSL函数的断点都没触发到
+* 【已解决】研究YouTube逻辑：触发不到断点MLOnesieRequestFactory的onesieRequestForPlayerRequest:dataLoader:context:cryptor:requestNumber:error:
+* 【未解决】Xcode调试抖音：触发断点后继续运行却卡死
+* 【已解决】XCode+MonkeyDev调试抖音不崩溃却卡死禁用断点始终停在Foundation的NSString的stringByAppendingString
+* 【未解决】Xcode中已禁用所有断点但仍会随机暂停执行在某处
+* 【未解决】Xcode调试抖音会随机停在某处：strEndsWith的SIGTRAP
+* 【未解决】Xcode调试抖音会随机停在某处：dladdr的SIGTRAP
+* 【未解决】通过XCode给stringByAppendingString加断点调试寻找抖音崩溃原因
+* 【基本解决】XCode断点调试_dyld_register_func_for_add_image后续调用导致抖音崩溃
+* 【整理】iOS逆向心得：给函数加了hook同时加断点会导致EXC_BREAKPOINT的崩溃
+* 【已解决】Xcode调试抖音的_RxAnnotationInlineLoader的load崩溃：Thread 1 EXC_BREAKPOINT code 1 subcode 0xe7ffdefe
+* 【已解决】Xcode调试hook代码时dladdr崩溃报错：Thread 1 EXC_BREAKPOINT code 1 subcode 0xe7ffdefe
+* 【已解决】Xcode中加断点lldb命令行报错：warning failed to set breakpoint site at for breakpoint error sending the breakpoint request
+* 【无需解决】iOS逆向调试：Xcode触发断点后长时间无操作好像调试会断开
+* 【已解决】Xcode调试抖音：卡死了运行不到汇编代码和函数的断点
+* 【未解决】XCode如何给MonkeyDev调试ipa程序加上断点
+* 【未解决】通过XCode给stringByAppendingString加断点调试寻找抖音崩溃原因
+* 【未解决】XCode和lldb中如何通过类名打断点：AWECloudJailBreakUtility
+* 【未解决】XCode和lldb中给抖音入口C语言函数_awemeMain加断点
+* 【已解决】研究抖音崩溃MetaSec appID原因：给UIApplicationMain加符号断点
+* 【未解决】研究AWECloudJailBreakUtility详情：用XCode给各个函数加上符号断点
+* 【已解决】iOS逆向：给___lldb_unnamed_symbol317和MGCopyAnswer添加条件判断的断点
+* 【未解决】lldb命令行中给objc_alloc_init的断点条件判断是否是AADeviceInfo
+* 【未解决】lldb中条件判断的断点出现警告：warning hit breakpoint while running function skipping commands and conditions to prevent recursion
+* 【整理】Xcode的lldb调试心得：可能被多次调用的函数不能轻易给后续加断点再继续运行
+* 【已解决】Xcode中lldb中b list不是breakpoint list
+* 【整理】lldb的语法和用法
+* 【已解决】iOS逆向：Xcode调试Preferences时界面卡死无法操作
 * 
 * [不用反汇编！LLDB对Objective-C函数下断点的黑科技 - 干货分享 - 睿论坛 (iosre.com)](https://iosre.com/t/%E4%B8%8D%E7%94%A8%E5%8F%8D%E6%B1%87%E7%BC%96%EF%BC%81lldb%E5%AF%B9objective-c%E5%87%BD%E6%95%B0%E4%B8%8B%E6%96%AD%E7%82%B9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/6711/20)
 * [断点 - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-hans/%E6%96%AD%E7%82%B9)

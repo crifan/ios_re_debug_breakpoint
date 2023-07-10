@@ -1,6 +1,11 @@
-# 命令行：lldb中断点
+# lldb命令行中的断点
 
 * lldb命令行中
+  * 有2处地方=场景
+    * `lldb+debugserver`中的：**lldb命令行**
+      * ![lldb_command_line_br](../assets/img/lldb_command_line_br.png)
+    * `Xcode`中右下角中的：**lldb命令行窗口**
+      * ![xcode_bottom_right_lldb_cmd](../assets/img/xcode_bottom_right_lldb_cmd.jpg)
   * 加断点
     * 普通断点
       * 通过函数名添加

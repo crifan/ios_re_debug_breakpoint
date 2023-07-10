@@ -73,6 +73,16 @@
                   * 具体步骤：让Xcode调试`Preferences`（而不是akd）
                     * ![xcode_debug_pid_78114](../../assets/img/xcode_debug_pid_78114.png)
                       * 此处的`78114`是`Preferences`的`PID`
+            * `-[NSMutableURLRequest ams_addAcceptLanguageHeader]`
+              * 现象
+                * hook插件`jailAppleAccount`中，hook目标是：`com.apple.Preferences`，以及Xcode调试Preferences，但是断点没触发
+              * 解决办法
+                * 把Xcode的调试目标改为`amsaccountsd`
+                  * 即可顺利触发断点
+                    * ![xcode_hook_amsaccountsd](../../assets/img/xcode_hook_amsaccountsd.png)
+                * 具体解释
+                  * 后来确认此处函数`-[NSMutableURLRequest ams_addAcceptLanguageHeader]`所属的二进制是`AppleMediaServices`
+                  * 所以要去把调试目标换成（和`AppleMediaServices`密切相关的）`AppleMediaServices.framework`的`amsaccountsd`
   * hook代码的断点
     * 加不上断点
       * 可能原因

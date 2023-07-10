@@ -6,8 +6,11 @@
       * C语言函数
         * `objc_alloc_init`
         * `UIApplicationMain`
+        * `awemeMain`
       * iOS的OjbC函数
-        * `-[NSString stringByAppendingString:]`
+        * `+[NSString stringWithUTF8String:]`
+        * `-[AppDelegate application:didFinishLaunchingWithOptions:]`
+        * `-[AWEUserRecommendFollowButton updateWithFollowStatus:followerStatus:preferredTitle:]`
         * `-[AAUISignInController _performAuthenticationForAccount:serviceType:inViewController:completion:]`
   * 通过地址
     * 举例
@@ -18,7 +21,7 @@
     * 通过函数名加断点
       * `Xcode`->`Breakpoint Navigator`->点击`左下角的加号➕`=`Create a breakpoint`->`Symbolic Breakpoint`
         * ![xcode_add_symbolic_breakpoint](../assets/img/xcode_add_symbolic_breakpoint.png)
-      * 出现符号断点的弹框页面
+      * 出现`符号断点`的弹框页面
         * ![xcode_br_new_symbol](../assets/img/xcode_br_new_symbol.png)
       * 在`Symbol`中输入对应的函数名，比如`objc_alloc_init`，即可添加完毕普通的函数名的断点
         * ![xcode_br_added_func_symbol](../assets/img/xcode_br_added_func_symbol.png)
@@ -54,3 +57,4 @@
       breakpoint set --name "-[NSString stringByAppendingString:]"
       breakpoint set --address 0x1830c6a80
       ```
+    * 语法详见：[breakpoint的help语法](../cmd_lldb/br_help.md)

@@ -2,6 +2,20 @@
 
 ## 举例
 
+### AppleAccount的函数：`+[AADeviceInfo udid]`和`-[AADeviceInfo udid]`
+
+* 现象
+  * （iOSOpenDev的）hook插件可以触发
+  * 但是：debugserver+lldb调试时，断点可以加上，但是却无法触发（断点）
+* 原因：调试目标不匹配
+  * iOSOpenDev的插件的hook目标是：`com.apple.Preferences`=设置app
+  * Xcode调试目标是：`akd`二进制
+* 解决办法：确保目标一致
+  * 插件代码的hook目标是：`com.apple.Preferences`=设置app=Preferences
+  * Xcode去调试的目标是：`Preferences`进程（的`PID`）
+    * 注：此处Preferences的PID=4797
+      * ![xcode_br_AADeviceInfo_udid_4797](../assets/img/xcode_br_AADeviceInfo_udid_4797.jpg)
+
 ### -[__NSCFConstantString stringByAppendingString:]
 
 XCode调试抖音ipa崩溃，发现崩溃日志是：
@@ -43,7 +57,7 @@ Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 
 
 ![xcode_stringByAppendingString_br_trigger](../assets/img/xcode_stringByAppendingString_br_trigger.png)
 
-### objc_alloc_init相关
+### objc_alloc_init
 
 Xcode中加的条件判断的断点：
 

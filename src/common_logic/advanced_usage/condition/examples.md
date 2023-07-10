@@ -2,6 +2,16 @@
 
 ## 函数
 
+### 判断`MGCopyAnswer`的传入参数是否是字符串`UniqueDeviceID`
+
+* 判断`MGCopyAnswer`的传入参数是否是字符串`UniqueDeviceID`
+  * 条件判断表达式：
+    ```bash
+    (bool)[$x0 isEqualToString: @"UniqueDeviceID"]
+    ```
+    * 效果
+      * ![br_MGCopyAnswer_x0_str](../../../assets/img/br_MGCopyAnswer_x0_str.png)
+
 ### 判断`_dyld_get_image_name`的第一个参数是`0` 或 `1`
 
 * 判断`_dyld_get_image_name`的第一个参数是`0` 或 `1`
@@ -16,7 +26,6 @@
   * 注：此处是`objc_msgSend`，所以第一个参数是`id`=`self`，第二个参数是`selector`，第三个参数才是**真正的传入的值**
   * 条件判断表达式：`(BOOL)($arg3 == NULL)`
     * ![br_refer_arg3_nsstring](../../../assets/img/br_refer_arg3_nsstring.png)
-
 
 ### 判断`objc_alloc_init`输入参数是类AADeviceInfo的`Class`
 
@@ -60,6 +69,24 @@
         * ![xcode_br_cond_object_getClassName](../../../assets/img/xcode_br_cond_object_getClassName.png)
 
 ## 某行汇编代码
+
+### `libMobileGestalt.dylib`的`___lldb_unnamed_symbol317`中的`+28`行汇编代码
+
+给`libMobileGestalt.dylib`的`___lldb_unnamed_symbol317`中的`+28`行汇编代码
+
+```bash
+0x194da0c1c <+28>:   mov    x19, x0
+```
+
+加条件判断断点：
+
+```bash
+(bool)[$x0 isEqualToString: @"UniqueDeviceID"]
+```
+
+断点触发效果：
+
+![br_x0_UniqueDeviceID_trigger](../../../assets/img/br_x0_UniqueDeviceID_trigger.png)
 
 ### `objc_alloc_init`的`+44`行的`objc_msgSend`行的汇编代码
 
