@@ -8,6 +8,8 @@
       * 当触发断点时，执行额外某些动作
         * 举例
           * 触发某个音乐文件，比如响铃一声之类的
+          * Action=`Debug Command`为`po indexPath`去打印当前索引值
+            * ![xcode_br_action_cmd_po_indexpath](../assets/img/xcode_br_action_cmd_po_indexpath.png)
   * 全局的异常类的断点
     * Xcode中，新增断点时，可以看到其他更多选项
       * ![xcode_add_br_global](../assets/img/xcode_add_br_global.png)

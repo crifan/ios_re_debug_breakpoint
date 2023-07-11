@@ -57,4 +57,9 @@
       breakpoint set --name "-[NSString stringByAppendingString:]"
       breakpoint set --address 0x1830c6a80
       ```
+        * 输出效果
+          ```bash
+          (lldb) breakpoint set -a 0x0000000103400010
+          Breakpoint 12: where = AppleStoreCore`static AppleStoreCore.User.initialize() -> (), address = 0x0000000103400010
+          ```
     * 语法详见：[breakpoint的help语法](../cmd_lldb/br_help.md)

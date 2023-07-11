@@ -1,5 +1,21 @@
 # ObjC函数断点
 
+## 给某个ObjC的类的所有方法都加上断点
+
+* 核心思路：用`-r`正则
+* 语法解释
+  ```bash
+      -r <regular-expression> ( --func-regex <regular-expression> )
+        Set the breakpoint by function name, evaluating a
+        regular-expression to find the function name(s).
+  ```
+* 举例
+  ```bash
+  breakpoint set -r '\[ClassName .*\]$'
+
+  br s -r '\[UIViewController .*\]$' -c '(BOOL)[(id)$arg1 isKindOfClass:[CustomVC class]]'
+  ```
+
 ## 如何搞懂得到正确的ObjC函数名
 
 想要通过函数名给ObjC函数去加断点之前，先要：搞懂ObjC函数名

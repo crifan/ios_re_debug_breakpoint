@@ -90,7 +90,10 @@
 * 【已解决】Xcode中lldb中b list不是breakpoint list
 * 【整理】lldb的语法和用法
 * 【已解决】iOS逆向：Xcode调试Preferences时界面卡死无法操作
+* 【整理】iOS逆向：ObjC底层函数objc_alloc_init
+* 【整理】iOS逆向：ObjC类的常用方法
 * 
+* [ios - lldb breakpoint on all methods in class objective c - Stack Overflow](https://stackoverflow.com/questions/29687504/lldb-breakpoint-on-all-methods-in-class-objective-c)
 * [不用反汇编！LLDB对Objective-C函数下断点的黑科技 - 干货分享 - 睿论坛 (iosre.com)](https://iosre.com/t/%E4%B8%8D%E7%94%A8%E5%8F%8D%E6%B1%87%E7%BC%96%EF%BC%81lldb%E5%AF%B9objective-c%E5%87%BD%E6%95%B0%E4%B8%8B%E6%96%AD%E7%82%B9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/6711/20)
 * [断点 - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-hans/%E6%96%AD%E7%82%B9)
 * [Breakpoint - Wikipedia](https://en.wikipedia.org/wiki/Breakpoint)
@@ -98,4 +101,5 @@
 * [GDB to LLDB command map — The LLDB Debugger (llvm.org)](https://lldb.llvm.org/use/map.html)
 * [stringByAppendingString: | Apple Developer Documentation](https://developer.apple.com/documentation/foundation/nsstring/1412307-stringbyappendingstring?language=objc)
 * [Why aren't Xcode breakpoints functioning? - Stack Overflow](https://stackoverflow.com/questions/64790/why-arent-xcode-breakpoints-functioning)
+* [Setting breakpoints to pause your running app | Apple Developer Documentation](https://developer.apple.com/documentation/xcode/setting-breakpoints-to-pause-your-running-app)
 * 
