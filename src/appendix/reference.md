@@ -1,5 +1,9 @@
 # 参考资料
 
+* 【已解决】给抖音恢复符号表便于Xcode调试加断点
+* 【未解决】iOS逆向WhatsApp：SharedModules中的函数加不上如何加上断点且确保能触发
+* 【已解决】用HeiTanBc的restore-symbol去给抖音AwemeCore恢复符号表
+* 
 * 【已解决】iOS逆向Apple账号：Xcode中AKAppleIDAuthenticationService多个函数的断点无效加不上且hook代码没触发
 * 【已解决】iOS逆向Apple账号：objc_alloc_init的hook代码加不上断点断点无效
 * 【已解决】iOS逆向调试：如何才能真正确保断点能触发到
@@ -30,7 +34,6 @@
 * 【已解决】iOS逆向Apple账号：objc_alloc_init的汇编代码断点没有触发到的原因
 * 【已解决】iOS逆向：给objc_alloc_init的+44行汇编代码的断点加条件判断的是否是类AADeviceInfo的更多种写法
 * 【已解决】lldb调试时给已有断点更改condition条件判断
-* 【已解决】给抖音恢复符号表便于Xcode调试加断点
 * 【已解决】给XCode调试抖音Aweme恢复符号表
 * 【已解决】用HeiTanBc的restore-symbol去给抖音AwemeCore恢复符号表
 * 【整理】抖音AwemeCore恢复符号表的效果举例
