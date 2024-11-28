@@ -4,66 +4,31 @@
 
 把相关lldb无名函数，变成对应的有名字的函数了。
 
-由此，则就可以：通过函数名去添加断点了。
+由此，则就可以通过函数名去添加断点了。
 
-## 举例
-
-### 抖音的AwemeCore
-
-#### 给抖音的AwemeCore恢复符号表
-
-用[HeiTanBc版本的restore-symbol](https://github.com/HeiTanBc/restore-symbol)去恢复符号表：
-
-具体步骤：
-
-下载、编译、确认：
-
-```bash
-git clone --recursive https://github.com/HeiTanBc/restore-symbol.git
-cd restore-symbol
-make
-./restore-symbol
-```
-
-使用：
-
-```bash
-➜  AwemeCore.framework /Users/crifan/dev/DevSrc/iOS/restore-symbol/HeiTanBc/restore-symbol/restore-symbol AwemeCore_noSymbol -o AwemeCore_restoredSymbol_HeiTanBc
-=========== Start =============
-Scan OC method in mach-o-file.
-Scan OC method finish.
-restore 329610 symbols
-=========== Finish ============
-```
-
-#### 抖音的AwemeCore恢复符号表后的效果
-
-之前通过恢复符号表，把部分AwemeCore的函数，从lldb无名函数：
-
-```bash
-frame #10: 0x00000001062dc7cc AwemeCore`___lldb_unnamed_symbol1799$$AwemeCore + 100
-frame #11: 0x00000001062dc744 AwemeCore`___lldb_unnamed_symbol1798$$AwemeCore + 48
-frame #14: 0x0000000106284054 AwemeCore`___lldb_unnamed_symbol1$$AwemeCore + 84
-```
-
-变成了有名字的函数：
-
-```bash
-frame #10: 0x00000001084847cc AwemeCore`-[HMDLaunchTracingTracker setupLaunchTraceOnlyOnce] + 100
-frame #11: 0x0000000108484744 AwemeCore`-[HMDLaunchTracingTracker resetLoadDate:] + 48
-frame #14: 0x000000010842c054 AwemeCore`+[AWELaunchMainPlaceholder load] + 84
-```
-
-对比效果：
-
-![AwemeCore_restore_symbol_diff](../../assets/img/AwemeCore_restore_symbol_diff.png)
-
-恢复符号表后的函数调用堆栈：
-
-![AwemeCore_symbol_bt](../../assets/img/AwemeCore_symbol_bt.png)
-
-由此：
-
-* 之前：给函数断点，只能用lldb无名函数`___lldb_unnamed_symbol1$$AwemeCore` 或 计算出实际地址，通过地址去加断点
-* 现在：给函数断点，就可以换用对应函数名`+[AWELaunchMainPlaceholder load]`了
-
+* 恢复符号表前后效果对比
+  * 恢复符号表之前
+    * 用函数名添加断点失败
+      * Xcode中
+        * `-[WARootViewController updateOfflineAssignABProperties]`
+      * lldb命令行中
+        * `b "-[WARootViewController updateOfflineAssignABProperties]"`
+  * 恢复符号表之后
+    * 可以用函数名添加断点
+      * 详见
+        * [恢复符号表前后对比 · iOS逆向分析：恢复符号表](https://book.crifan.org/books/ios_re_restore_symbol/website/before_after/)
+* 如何恢复符号表
+  * 概述
+    * 推荐
+      * 用我crifan的成套工具：[exportIDASymbol.py](https://github.com/crifan/restore-symbol/blob/master/tools/IDAScripts/export_ida_symbol/exportIDASymbol.py) + [crifan版restore-symbol](https://github.com/crifan/restore-symbol)
+        * 可以一次性实现
+          * 自动给很多函数命名
+          * 恢复ObjC符号表
+          * 恢复Block符号表
+          * 其他细节优化
+        * 详见
+          * [crifan版restore-symbol · iOS逆向分析：恢复符号表](https://book.crifan.org/books/ios_re_restore_symbol/website/how/restore_symbol_crifan/)
+    * 之前普通做法
+      * [HeiTanBc的restore-symbol](https://book.crifan.org/books/ios_re_restore_symbol/website/how/restore_symbol_orig/)
+  * 详见
+    * [如何恢复符号表 · iOS逆向分析：恢复符号表](https://book.crifan.org/books/ios_re_restore_symbol/website/how/)
