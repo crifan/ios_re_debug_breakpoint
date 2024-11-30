@@ -2,6 +2,18 @@
 
 ## 函数
 
+### 普通例子
+
+```bash
+breakpoint set --name foo --condition '(int)strcmp(y,"hello") == 0'
+```
+
+==
+
+```bash
+br s -n foo -c '(int)strcmp(y,"hello") == 0'
+```
+
 ### 判断`MGCopyAnswer`的传入参数是否是字符串`UniqueDeviceID`
 
 * 判断`MGCopyAnswer`的传入参数是否是字符串`UniqueDeviceID`

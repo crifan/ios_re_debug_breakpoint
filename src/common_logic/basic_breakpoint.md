@@ -41,6 +41,10 @@
         b objc_alloc_init
         b 0x1830c6a80
         ```
+        ```bash
+        (lldb) b 0x10104F698
+        Breakpoint 4: where = mobileactivationd`getPcrt_1000075C0 + 216, address = 0x000000010104f698
+        ```
     * 完整命令添加
       ```bash
       breakpoint set --name FunctionName
@@ -49,7 +53,9 @@
       * 常用命令的缩写
         ```bash
         br s -n FunctionName
+
         br s -a SomeAddress
+        breakpoint set -a {二进制库的实际ASLR基地址} + {二进制内偏移量地址}
         ```
       * 举例
       ```bash
@@ -62,4 +68,14 @@
           (lldb) breakpoint set -a 0x0000000103400010
           Breakpoint 12: where = AppleStoreCore`static AppleStoreCore.User.initialize() -> (), address = 0x0000000103400010
           ```
+          * 加上断点后list查看确认
+            ```bash
+            (lldb) breakpoint set -a 0x1102d3348
+            Breakpoint 54: where = AwemeCore`___lldb_unnamed_symbol1462804$$AwemeCore + 480, address = 0x00000001102d3348
+            (lldb) breakpoint list
+            Current breakpoints:
+            …
+            54: address = AwemeCore[0x000000000ee2b348], locations = 1, resolved = 1, hit count = 0
+              54.1: where = AwemeCore`___lldb_unnamed_symbol1462804$$AwemeCore + 480, address = 0x00000001102d3348, resolved, hit count = 0
+            ```
     * 语法详见：[breakpoint的help语法](../cmd_lldb/br_help.md)

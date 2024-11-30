@@ -253,3 +253,35 @@ Command Options Usage:
      This command takes options and free-form arguments.  If your arguments resemble option specifiers (i.e., they start with a - or --), you must use ' -- ' between the end of the
      command options and the beginning of the arguments.
 ```
+
+### help breakpoint list
+
+```bash
+(lldb) help breakpoint list
+List some or all breakpoints at configurable levels of detail.
+
+Syntax: breakpoint list <cmd-options> [<breakpt-id>]
+
+Command Options Usage:
+  breakpoint list [-Dbi] [<breakpt-id>]
+  breakpoint list [-Dfi] [<breakpt-id>]
+  breakpoint list [-Div] [<breakpt-id>]
+
+       -D ( --dummy-breakpoints )
+            List Dummy breakpoints - i.e. breakpoints set before a file is provided, which prime new targets.
+
+       -b ( --brief )
+            Give a brief description of the breakpoint (no location info).
+
+       -f ( --full )
+            Give a full description of the breakpoint and its locations.
+
+       -i ( --internal )
+            Show debugger internal breakpoints
+
+       -v ( --verbose )
+            Explain everything we know about the breakpoint (for debugging debugger bugs).
+
+     This command takes options and free-form arguments.  If your arguments resemble option specifiers (i.e., they start with a - or --), you must use ' -- ' between the end of the command options and the beginning of the
+     arguments.
+```

@@ -1,5 +1,15 @@
 # Xcode图形界面中的断点
 
+TODO：
+
+* 【记录】lldb命令使用心得：breakpoint
+* 【已解决】Xcode中lldb中b list不是breakpoint list
+* 【未解决】Xcode中无法给下一行将要运行的汇编指令加断点
+* 【已解决】XCode中如何给符号断点加上判断条件
+* 【未解决】XCode和lldb如何根据函数地址加断点
+
+---
+
 * Xcode特有的
   * 当断点发生时，支持更多的设置
     * ignore
