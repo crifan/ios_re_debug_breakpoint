@@ -95,6 +95,7 @@
 * 【已解决】iOS逆向：Xcode调试Preferences时界面卡死无法操作
 * 【整理】iOS逆向：ObjC底层函数objc_alloc_init
 * 【整理】iOS逆向：ObjC类的常用方法
+* 【已解决】iOS逆向：lldb中加断点报错：Breakpoint no locations pending WARNING Unable to resolve breakpoint to any actual locations
 * 
 * [ios - lldb breakpoint on all methods in class objective c - Stack Overflow](https://stackoverflow.com/questions/29687504/lldb-breakpoint-on-all-methods-in-class-objective-c)
 * [不用反汇编！LLDB对Objective-C函数下断点的黑科技 - 干货分享 - 睿论坛 (iosre.com)](https://iosre.com/t/%E4%B8%8D%E7%94%A8%E5%8F%8D%E6%B1%87%E7%BC%96%EF%BC%81lldb%E5%AF%B9objective-c%E5%87%BD%E6%95%B0%E4%B8%8B%E6%96%AD%E7%82%B9%E7%9A%84%E9%BB%91%E7%A7%91%E6%8A%80/6711/20)

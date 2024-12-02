@@ -126,35 +126,6 @@ image lookup -rn "setValue:forHTTPHeaderField:"
 br s -n "-[SSMutableURLRequestProperties setValue:forHTTPHeaderField:]"
 ```
 
-### 给带Deprecated的函数名加断点加不上断点
-
-之前试过给ObjC函数：
-
-```bash
-+[AADeviceInfo(Deprecated) udid]
-```
-
-去加断点，发现加不上
-
-后来才知道，其实是：
-
-* 之前没加上断点，是另外的原因
-  * 调试目标和hook目标不一致
-    * 具体解决办法，详见：[断点能加上且能触发](../note_summary/xcode/added_and_trigger.md)
-* 此处能加上断点，用的函数名是不带`Deprecated`字眼的
-  ```bash
-  +[AADeviceInfo udid]
-  ```
-* 如果起查找函数，可以发现底层函数就是带`Deprecated`字眼的函数 = 真正触发时，Xcode中显示的也是带Deprecated字眼的函数
-  ```bash
-  (lldb) image lookup -vn "+[AADeviceInfo udid]"
-  1 match found in /Users/crifan/Library/Developer/Xcode/iOS DeviceSupport/15.0 (19A346)/Symbols/System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount:
-          Address: AppleAccount[0x0000000191e0e558] (AppleAccount.__TEXT.__text + 176432)
-          Summary: AppleAccount`+[AADeviceInfo(Deprecated) udid]
-          Module: file = "/Users/crifan/Library/Developer/Xcode/iOS DeviceSupport/15.0 (19A346)/Symbols/System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount", arch = "arm64"
-          Symbol: id = {0x00000473}, range = [0x0000000195ce6558-0x0000000195ce659c), name="+[AADeviceInfo(Deprecated) udid]"
-  ```
-
 ## 其他
 
 ### warning: failed to set breakpoint site at 0x1b1750624 for breakpoint 66.1: error sending the breakpoint request
